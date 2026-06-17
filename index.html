@@ -450,7 +450,7 @@
       var el=document.createElement('div');
       el.className='subleaf';
       if(flat){
-        el.innerHTML=esc(it.name)+(it.live?'<span class="ptag" style="margin-left:14px;vertical-align:middle">'+(it.demo?'demo':'live')+'</span>':'')+'<span class="meta">'+esc(it.tech||'')+'</span>';
+        el.innerHTML=esc(it.name)+(it.live?'<span class="ptag" style="margin-left:14px;vertical-align:middle">live</span>':'')+'<span class="meta">'+esc(it.tech||'')+'</span>';
         el.addEventListener('click',(function(p){return function(){ openDetail(p); };})(it));
       }else{
         el.innerHTML=esc(it.name)+'<span class="meta">'+it.projects.length+' project'+(it.projects.length>1?'s':'')+'</span>';
@@ -500,7 +500,7 @@
     sa.projects.forEach(function(pr,j){
       var el=document.createElement('div');
       el.className='pleaf'; el.style.left=leafX+'px';
-      el.innerHTML=esc(pr.name)+(pr.live?'<span class="ptag">'+(pr.demo?'demo':'live')+'</span>':'');
+      el.innerHTML=esc(pr.name)+(pr.live?'<span class="ptag">live</span>':'');
       el.addEventListener('click',(function(p){return function(){ openDetail(p); };})(pr));
       projLabels.appendChild(el);
       el.style.top=Math.round(ys[j]-el.offsetHeight/2)+'px';
@@ -530,7 +530,7 @@
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeCard(); });
 
   function openDetail(p){
-    var live = p.live ? '<a class="dbtn" href="'+p.live+'" target="_blank" rel="noopener">Live Demo'+(p.demo?'<span class="tag">demo</span>':'')+'</a>' : '';
+    var live = p.live ? '<a class="dbtn" href="'+p.live+'" target="_blank" rel="noopener">Live Demo<span class="tag">live</span></a>' : '';
     var gh = '<a class="dbtn ghost" href="'+GH+encodeURIComponent(p.name)+'" target="_blank" rel="noopener">GitHub</a>';
     showCard(
       '<button class="close" data-close aria-label="Close">\u00d7</button>'+
